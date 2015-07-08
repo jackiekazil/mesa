@@ -34,6 +34,50 @@ When you do that, it will install the following packages and dependencies.
 - pandas
 
 
+Overview
+------------
+
+There are three module types in Mesa.
+
+1. modeling
+2. analysis
+3. visualization
+
+
+Modeling module
+~~~~~~~~~~~~~~
+
+To build a model, you need the following:
+
+* a **Model class** to store the model-level parameters and serve as a container for the rest of the components
+
+* one or more **Agent class** which describe the model agents
+
+* (most likely) **a scheduler** which controls the agent activation regime, and handles time in the model in general
+
+* **space components** describing the space and/or network the agents are situated in
+
+
+Analysis modules
+~~~~~~~~~~~~~~
+
+* Data collectors use to record data from each model run
+* Batch runners for automating multiple runs and arameter sweeps
+
+
+Visualization modules
+~~~~~~~~~~~~~~
+
+* displays model in a browser window
+
+
+
+
+
+
+
+
+
 ** THIS DOC IS IN PROGRESS **
 
 
