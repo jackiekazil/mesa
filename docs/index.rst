@@ -17,6 +17,8 @@ It allows users to quickly create agent-based models using built-in core compone
 being visualized in a browser window and analyzed in an IPython
 notebook.*
 
+
+
 .. _`Mesa` : https://github.com/projectmesa/mesa/
 
 Features
@@ -52,7 +54,7 @@ For more help on using Mesa, checkout the following resources:
 
 ** Table of Contents **
 
-.. toctree::
+.. toctree:
    :maxdepth: 1
 
    Mesa overview <index>
