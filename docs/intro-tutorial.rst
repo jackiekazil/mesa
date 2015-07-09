@@ -34,7 +34,7 @@ When you do that, it will install the following packages and dependencies.
 - pandas
 
 
-Overview
+Overview of Modules
 ------------
 
 There are three module types in Mesa.
@@ -42,6 +42,8 @@ There are three module types in Mesa.
 1. modeling
 2. analysis
 3. visualization
+
+TODO: Insert image
 
 
 Modeling module
@@ -68,12 +70,49 @@ Analysis modules
 Visualization modules
 ~~~~~~~~~~~~~~
 
-* displays model in a browser window
+* displays model in a browser window in various ways
+* displays model as grid
+* displays model graphs
+* displays model controls
 
 
 
+Building a sample model
+------------
 
+Now that we understand a little bit about the components,let's use those components to build a model. To begin building the example model described at the top of this page -- we first *create two classes: one for the model object itself and one the model agents*.
 
+**Agent**
+
+In our example, each agent has a single ...
+
+* variable: How much money it currently has
+* action: Give a unit of money to another agent
+
+.. code-block:: python
+
+    from mesa import Model, Agent
+
+    class MoneyAgent(Agent):
+        """ An agent with fixed initial wealth."""
+        def __init__(self, unique_id):
+            self.unique_id = unique_id                   # 1.
+            self.wealth = 1
+
+    class MoneyModel(Model):
+        """A model with some number of agents."""
+        def __init__(self, N):
+             self.num_agents = N
+             # The scheduler will be added here
+             self.create_agents()
+
+        def create_agents(self):
+            """Method to create all the agents."""
+            for i in range(self.num_agents):
+                a = MoneyAgent(i)
+                # Now what? See below.
+
+1. Each agent should have a unique identifier, stored in the ``unique_id`` field.
 
 
 

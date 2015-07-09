@@ -4,10 +4,10 @@
    contain the root `toctree` directive.
 
 
-Mesa: Agent-based modeling in Python 3+
+Mesa: Agent-based modeling
 ================================
 
-`Mesa`_ is an Apache2 licensed agent-based modeling (or ABM) framework in Python.
+`Mesa`_ is an Apache2 licensed agent-based modeling (or ABM) framework in Python 3+.
 
 It allows users to quickly create agent-based models using built-in core components (such as spatial grids and agent schedulers) or customized implementations; visualize them using a browser-based interface; and analyze their results using Python's data analysis tools. It's goal is to be the Python 3-based alternative to NetLogo, Repast, or MASON.
 
@@ -54,8 +54,10 @@ For more help on using Mesa, checkout the following resources:
 
 ** Table of Contents **
 
+.. :maxdepth: 1
+
 .. toctree::
-   :maxdepth: 1
+   :titlesonly:
 
    Mesa overview <index>
    intro-tutorial
