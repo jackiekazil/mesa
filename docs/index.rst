@@ -52,7 +52,7 @@ For more help on using Mesa, checkout the following resources:
 .. _`PyPI` : https://pypi.python.org/pypi/Mesa/
 
 
-** Table of Contents **
+**Table of Contents**
 
 .. toctree::
    :maxdepth: 1
