@@ -1,14 +1,13 @@
 Introduction to Mesa - Tutorial
 ================================
 
-Getting started with Mesa is easy. In this doc, we will present Mesa’s
-architecture and core features. To illustrate their use, we will describe and build a simple agent-based model, drawn from econophysics and presenting a statistical mechanics approach to wealth distribution [Dragulescu2002]_.
+Getting started with Mesa is easy. In this doc, we will present Mesa’s architecture and core features. To illustrate them, we'll walk you through building a simple agent-based model, drawn from econophysics and presenting a statistical mechanics approach to wealth distribution [Dragulescu2002]_.
 
 The rules of our tutorial model:
 
 - There are some number of agents.
 - All agents begin with 1 unit of money.
-- Every step fo the model, an agent gives 1 unit of money (if they have it) to some other agent.
+- Every step of the model, an agent gives 1 unit of money (if they have it) to some other agent.
 
 Despite its simplicity, this model yields results that are often unexpected to those not familiar with it. For our purposes, it also easily demonstrates Mesa's core features.
 
@@ -18,7 +17,7 @@ Let's get started.
 Installation
 ------------
 
-The first thing you need to do is to install Mesa. We recommend doing this in a `virtual environment`_. Make sure your work space is pointed to Python3. Mesa requires Python3 and does not work in < Python3 environments.
+The first thing you need to do is to install Mesa. We recommend doing this in a `virtual environment`_. Make sure your work space is pointed to Python 3. Mesa requires Python3 and does not work in < Python 3 environments.
 
 To install Mesa, simply:
 
@@ -51,38 +50,41 @@ Modeling modules
 
 To build a model, you need the following:
 
-* **Model class** to store the model-level parameters and serve as a container for the rest of the components
+* **Model class** to store the model-level parameters and serve as a container for the rest of the components.
 
-* **Agent class(es)** which describe the model agents
+* **Agent class(es)** which describe the model agents.
 
-* **Scheduler** which controls the agent activation regime, and handles time in the model in general
+* **Scheduler** which controls the agent activation regime, and handles time in the model in general.
 
-* **space** components describing the space and/or network the agents are situated in
+* **space** components describing the space and/or network the agents are situated in (if any).
 
 
 Analysis modules
 ~~~~~~~~~~~~~~
 
-* Data collectors use to record data from each model run
-* Batch runners for automating multiple runs and parameter sweeps
+Not every model *needs* these modules, but they provide useful tools for getting data out of your model runs to study more systematically.
+
+* **Data collectors** are used to record data from each model run.
+* **Batch runners** automate multiple runs and parameter sweeps -- running the model with different parameters, to see how they change its behavior.
 
 
 Visualization modules
 ~~~~~~~~~~~~~~
 
-* displays model in a browser window in various ways
-* displays model as grid
-* displays model graphs
-* displays model controls
+A visualization lets you directly observe model runs, seeing the dynamics that emerge from it and making sure that it's behaving in the way you want it to. Mesa handles visualizations in a browser window, using JavaScript. It provides a set of pre-built components, which can be instantiated for a particular model in Python and automatically generate the corresponding objects in the browser window. It's also easy to write your own components with some basic JavaScript knowledge.
 
+Some visualization modules we'll use here include:
 
+* **Grid** visualization,
+* **Chart** display module,
+* The **ModularServer** itself.
 
 Building a sample model
 ------------
 
-Now that we understand a little bit about the components,let's use those components to build a model.
+Now that we understand a little bit about the components, let's use those components to build a model.
 
-First, we need a place to put our model. Let's create a directory for our model for good practice, then change into the directory that you create. In this tutorial, we will call this 'mesa-example'.
+First, we need a place to put our model. Let's create a directory for our model for good practice. In this tutorial, we will call this 'mesa-example'.
 
 .. code-block:: bash
 
