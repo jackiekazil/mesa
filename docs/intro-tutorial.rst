@@ -80,39 +80,128 @@ Visualization modules
 Building a sample model
 ------------
 
-Now that we understand a little bit about the components,let's use those components to build a model. To begin building the example model described at the top of this page -- we first *create two classes: one for the model object itself and one the model agents*.
+Now that we understand a little bit about the components,let's use those components to build a model.
 
-**Agent**
+First, we need a place to put our model. Let's create a directory for our model for good practice, then change into the directory that you create. In this tutorial, we will call this 'mesa-example'.
+
+.. code-block:: bash
+
+    mkdir mesa-example
+    cd mesa-example
+
+Create a file to store your sample model. Let's call it money.py.
+
+.. code-block:: bash
+
+    touch moneymodel.py
+
+In the editor of your choice, open moneymodel.py.
+
+To begin building the example model described at the top of this page -- we first *subclass two classes: one for the model object itself and one the model agents*.
+
+
+Creating the model
+~~~~~~~~~~~~~~
+
+The first we do is import the ``Model`` base class.
+
+.. code-block:: python
+
+    from mesa import Model
+
+Then we subclass and instance of the Money Model. The model itself will have some number of agents and will have a funtion to create our agents.
+
+.. code-block:: python
+
+   class MoneyModel(Model):
+        """A model with some number of agents."""
+        def __init__(self, N):
+             self.num_agents = N
+
+Creating Agents
+~~~~~~~~~~~~~~
 
 In our example, each agent has a single ...
 
 * variable: How much money it currently has
 * action: Give a unit of money to another agent
 
+The first we do is import the ``Agent`` base class. Update the import statement to reflect this.
+
 .. code-block:: python
 
     from mesa import Model, Agent
 
+Then subclass Agent to create a class that is specific to our sample model. (You will want to put this above the Model class, because the model is going to need to reference it.)
+
+Each agent should have a unique identifier and start with a wealth of 1.
+
+.. code-block:: python
+
     class MoneyAgent(Agent):
         """ An agent with fixed initial wealth."""
         def __init__(self, unique_id):
-            self.unique_id = unique_id                   # 1.
+            self.unique_id = unique_id
             self.wealth = 1
 
     class MoneyModel(Model):
-        """A model with some number of agents."""
-        def __init__(self, N):
-             self.num_agents = N
-             # The scheduler will be added here
-             self.create_agents()
+        ....
+
+We have an Agent object and a Model Object, but we have no Agents in our Model. Let's add those.
+
+Adding Agents to Model
+~~~~~~~~~~~~~~
+
+Add create_agents function to the MoneyModel. We need to loop over the num_agents and instantiate an our agent and store the agent into a variable.
+
+.. code-block:: python
+
+    class MoneyModel(Model):
+        ...
 
         def create_agents(self):
             """Method to create all the agents."""
             for i in range(self.num_agents):
                 a = MoneyAgent(i)
-                # Now what? See below.
 
-1. Each agent should have a unique identifier, stored in the ``unique_id`` field.
+Then, we need to call this function when the object is initciated.
+
+.. code-block:: python
+
+   class MoneyModel(Model):
+        """A model with some number of agents."""
+        def __init__(self, N):
+             self.num_agents = N
+             self.create_agents()
+
+At this point, your code should look like the code below.
+
+.. code-block:: python
+
+  from mesa import Model, Agent
+
+  class MoneyAgent(Agent):
+    """ An agent with fixed initial wealth."""
+    def __init__(self, unique_id):
+      self.unique_id = unique_id
+      self.wealth = 1
+
+  class MoneyModel(Model):
+    """A model with some number of agents."""
+    def __init__(self, N):
+      self.num_agents = N
+      # The scheduler will be added here
+      self.create_agents()
+
+    def create_agents(self):
+      """Method to create all the agents."""
+      for i in range(self.num_agents):
+        a = MoneyAgent(i)
+        # Now what? See below.
+
+
+
+
 
 
 
