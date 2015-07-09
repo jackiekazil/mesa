@@ -49,13 +49,13 @@ Modeling module
 
 To build a model, you need the following:
 
-* a **Model class** to store the model-level parameters and serve as a container for the rest of the components
+* **Model class** to store the model-level parameters and serve as a container for the rest of the components
 
-* one or more **Agent class** which describe the model agents
+* **Agent class(es)** which describe the model agents
 
-* (most likely) **a scheduler** which controls the agent activation regime, and handles time in the model in general
+* **Scheduler** which controls the agent activation regime, and handles time in the model in general
 
-* **space components** describing the space and/or network the agents are situated in
+* **space** components describing the space and/or network the agents are situated in
 
 
 Analysis modules

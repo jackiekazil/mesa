@@ -54,7 +54,7 @@ For more help on using Mesa, checkout the following resources:
 
 ** Table of Contents **
 
-.. toctree:
+.. toctree::
    :maxdepth: 1
 
    Mesa overview <index>
