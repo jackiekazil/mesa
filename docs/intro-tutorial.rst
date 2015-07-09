@@ -46,7 +46,7 @@ There are three module types in Mesa.
 TODO: Insert image
 
 
-Modeling module
+Modeling modules
 ~~~~~~~~~~~~~~
 
 To build a model, you need the following:
@@ -64,7 +64,7 @@ Analysis modules
 ~~~~~~~~~~~~~~
 
 * Data collectors use to record data from each model run
-* Batch runners for automating multiple runs and arameter sweeps
+* Batch runners for automating multiple runs and parameter sweeps
 
 
 Visualization modules
@@ -198,12 +198,6 @@ At this point, your code should look like the code below.
       for i in range(self.num_agents):
         a = MoneyAgent(i)
         # Now what? See below.
-
-
-
-
-
-
 
 
 ** THIS DOC IS IN PROGRESS **
