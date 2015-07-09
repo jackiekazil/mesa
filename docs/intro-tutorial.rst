@@ -164,7 +164,7 @@ Add create_agents function to the MoneyModel. We need to loop over the num_agent
             for i in range(self.num_agents):
                 a = MoneyAgent(i)
 
-Then, we need to call this function when the object is initciated.
+Then, we need to call this function when the object is initiated.
 
 .. code-block:: python
 
